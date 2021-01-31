@@ -1,0 +1,62 @@
+<div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <i data-feather="settings" width="72" height="57"></i>
+        <h2>Control M Endpoint Setting</h2>
+        <p class="lead">Required Settings for Control M.</p>
+      </div>
+  
+      <div class="row g-3">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Instructions</span>
+            <!-- <span class="badge bg-secondary rounded-pill">3</span> -->
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">First Instruction</h6>
+                <small class="text-muted">Brief description</small>
+              </div>
+              <span class="text-muted"></span>
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Settings</h4>
+          <form class="needs-validation" [formGroup]="form" (ngSubmit)="onSettingSubmit()">
+            <div class="row g-3">
+  
+              <div class="col-12">
+                <label for="address" class="form-label">Control M API Endpoint URL</label>
+                <input type="text" class="form-control" id="ctmEndpointURL" placeholder="https://server name: port/automation-api" formControlName="endpointUrl">
+                <span class="text-danger"
+                    *ngIf="(formControl.endpointUrl.touched) && formControl.endpointUrl.errors?.required">
+                    Please enter Control M API Endpoint URL.
+                </span>
+              </div>
+
+            </div>
+  
+            <hr class="my-4">
+  
+            <div class="d-flex justify-content-between align-items-center g-3">
+                <button class="w-25 btn btn-dark btn-lg" [routerLink]="['/']">Cancel</button>
+                <button class="w-25 btn btn-primary btn-lg" type="submit" [disabled]="form.invalid">Set</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </main>
+  
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; Copyright 2021</p>
+      <!-- <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul> -->
+    </footer>
+  </div>
